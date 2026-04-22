@@ -244,3 +244,32 @@ button[type="submit"]:hover {
 button[type="submit"]:active {
     transform: translateY(1px);
 }
+
+/* ============================================================
+    Issue #6 Responsiveness + sticky header scroll fix
+    ============================================================ */
+
+/* ===== Mobile / small tablet (≤ 48rem ≈ 768px) ===== */
+@media (max-width: 48rem) {
+    /* Single-column sections */
+    main {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    /* Full-span sections stay full width (already `1 / -1`) */
+
+    /* Tighter header padding on narrow viewports */
+    header {
+        padding: 1rem 0.5rem;
+    }
+
+    /* Nav wraps to multiple lines → bigger scroll offset */
+    html {
+        scroll-padding-top: 14rem;
+    }
+
+    /* Smaller headings for mobile */
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.25rem; }
+}
