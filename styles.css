@@ -56,3 +56,86 @@ strong, b {
 em, i {
     color: var(--color-muted);
 }
+
+/* ============================================================
+    Issue #3 Box model + sizing
+    ============================================================ */
+
+/* ===== Layout container — margin: auto, max-width ===== */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 90%;                   /* relative: % */
+    max-width: 60rem;             /* relative: rem */
+    margin: 2rem auto;            /* margin shorthand + margin: auto */
+    padding: 1.5rem;              /* padding shorthand */
+}
+
+/* ===== Header: borders (longhand) + padding (longhand) ===== */
+header {
+    padding-top: 2em;             /* padding longhand + relative: em */
+    padding-right: 1em;
+    padding-bottom: 2em;
+    padding-left: 1em;
+
+    border-bottom-style: solid;   /* border longhand */
+    border-bottom-color: var(--color-border);
+    border-bottom-width: 2px;     /* absolute: px */
+
+    margin-top: 0;                /* margin longhand */
+    margin-right: 0;
+    margin-bottom: 2rem;
+    margin-left: 0;
+
+    text-align: center;
+}
+
+/* ===== Sections: borders (shorthand) + rounded corners ===== */
+section {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);    /* border shorthand */
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;                  /* padding shorthand */
+    margin-bottom: 1.5rem;
+
+    min-width: 0;                             /* sizing */
+}
+
+/* ===== Headings: sizing with rem ===== */
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.15rem; }
+
+/* ===== Images: responsive max-width/min-width ===== */
+img, video {
+    width: 100%;                  /* sizing: width */
+    max-width: 45rem;             /* sizing: max-width */
+    min-width: 12rem;             /* sizing: min-width */
+    height: auto;                 /* sizing: height (auto keeps aspect ratio) */
+    border-radius: 0.25rem;
+}
+
+/* ===== Form fieldset: mix of units ===== */
+fieldset {
+    padding: 1em 1.25em;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+}
+
+/* ===== Footer smallprint — uses pt (absolute) for "print-ish" feel ===== */
+footer > div {
+    font-size: 10pt;              /* absolute: pt */
+    text-align: center;
+    padding: 1rem 0;
+    color: var(--color-muted);
+}
+
+/* ===== Print layout: absolute units cm/in make semantic sense here ===== */
+@media print {
+    body {
+        margin: 2cm;              /* absolute: cm */
+    }
+}
