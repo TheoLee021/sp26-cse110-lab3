@@ -301,7 +301,7 @@ h2 ~ ul {
 
 /* :has() - highlight sections that contain an image */
 section:has(img) {
-    border-left: 3px solid var(--color-primary);
+    box-shadow: 0 4px 12px rgba(29, 118, 219, 0.15);
 }
 
 /* Nested selector */
