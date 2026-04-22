@@ -14,6 +14,10 @@
     --color-link: orange;                                        /* named color */
 }
 
+html {
+    scroll-padding-top: 16rem;   /* sticky header 높이만큼 스크롤 여백 */
+}
+
 /* ===== Body: font-family + background + text color ===== */
 body {
     /* CSS variable with fallback */
@@ -76,9 +80,9 @@ main {
 
 /* ===== Header: borders (longhand) + padding (longhand) ===== */
 header {
-    padding-top: 2em;             /* padding longhand + relative: em */
+    padding-top: 0.5em;             /* padding longhand + relative: em */
     padding-right: 1em;
-    padding-bottom: 2em;
+    padding-bottom: 1em;
     padding-left: 1em;
 
     border-bottom-style: solid;   /* border longhand */
@@ -185,4 +189,58 @@ fieldset label {
     background-color: var(--color-accent);
     color: #fff;
     border-radius: 0.25rem;
+}
+
+/* ============================================================
+    Issue #5 Position + pseudo-classes + inline/style demo
+    ============================================================ */
+
+/* ===== Sticky header — 2 position values: sticky + relative ===== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--color-bg);
+}
+
+section {
+    position: relative;   /* positioning context for any future absolute children */
+}
+
+/* ===== Nav link states ===== */
+nav a {
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25rem;
+}
+
+nav a:hover {
+    background-color: var(--color-accent);
+    text-decoration: underline;
+}
+
+nav a:active {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+/* ===== Submit button (attribute selector: [type="submit"]) ===== */
+button[type="submit"] {
+    padding: 0.5em 1.25em;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--color-accent);
+}
+
+button[type="submit"]:active {
+    transform: translateY(1px);
 }
