@@ -182,15 +182,6 @@ fieldset label {
     margin-bottom: 0.25rem;
 }
 
-/* inline-block */
-#misc span {
-    display: inline-block;
-    padding: 0.15em 0.5em;
-    background-color: var(--color-accent);
-    color: #fff;
-    border-radius: 0.25rem;
-}
-
 /* ============================================================
     Issue #5 Position + pseudo-classes + inline/style demo
     ============================================================ */
@@ -264,7 +255,7 @@ button[type="submit"]:active {
         padding: 1rem 0.5rem;
     }
 
-    /* Nav wraps to multiple lines → bigger scroll offset */
+    /* Nav wraps to multiple lines -> bigger scroll offset */
     html {
         scroll-padding-top: 14rem;
     }
@@ -272,4 +263,54 @@ button[type="submit"]:active {
     /* Smaller headings for mobile */
     h1 { font-size: 1.5rem; }
     h2 { font-size: 1.25rem; }
+}
+
+/* ============================================================
+    Issue #7 Selector coverage completion
+    ============================================================ */
+
+/* Universal selector — box-sizing reset */
+* {
+    box-sizing: border-box;
+}
+
+/* Class selector */
+.badge {
+    display: inline-block;
+    padding: 0.15em 0.5em;
+    background-color: var(--color-accent);
+    color: #ffffff;
+    border-radius: 0.25rem;
+}
+
+/* Combining two selectors (element.class) */
+span.badge {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* Adjacent sibling combinator (+) */
+h2 + p {
+    margin-top: 0.25rem;
+}
+
+/* General sibling combinator (~) */
+h2 ~ ul {
+    padding-left: 1.5rem;
+}
+
+/* :has() - highlight sections that contain an image */
+section:has(img) {
+    border-left: 3px solid var(--color-primary);
+}
+
+/* Nested selector */
+footer {
+    & form {
+        margin-bottom: 1rem;
+    }
+
+    & p {
+        color: var(--color-muted);
+    }
 }
